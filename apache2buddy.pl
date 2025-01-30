@@ -1347,17 +1347,18 @@ sub get_php_setting {
 			# looking for /etc/php/*/apache2/php.ini
 			my @files = glob "/etc/php/*/apache2/php.ini";
 			
-			if (@files != 1) {
-				# looking for /etc/php/*/fpm/php.ini
-				my @files = glob "/etc/php/*/fpm/php.ini";
+			# if (@files != 1) {
+			# 	# looking for /etc/php/*/fpm/php.ini
+			# 	my @files = glob "/etc/php/*/fpm/php.ini";
 			
-                                # This block should never be hit.
-				if (@files != 1) {
-					our $real_config = "Not Found.";
-			        }
-			} else {
-				our $real_config = @files[0];
-			}
+            #                     # This block should never be hit.
+			# 	if (@files != 1) {
+			# 		our $real_config = "Not Found.";
+			#         }
+			# } else {
+			# 	our $real_config = @files[0];
+			# }
+            our $real_config = @files[-1];
 		}
 
 		our $real_config;
